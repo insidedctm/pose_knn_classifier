@@ -1,0 +1,8 @@
+.DS_Store
+*.zip
+*.png
+
+__pycache__/
+fitness_poses_images_in/
+fitness_poses_images_out/
+fitness_poses_csvs_out/
