@@ -13,6 +13,7 @@ python 3.7 installation
 git clone ...
 cd pose_knn_classifier
 pip install -r requirements.txt
+```
 
 ## Operation
 1. Record videos of exercises
@@ -22,15 +23,18 @@ pip install -r requirements.txt
 The above steps produces a single csv file containing all the data required for the KNN classifier
 
 ### Extract frames
+`extract_frames.py` provides an on-screen interface to step through the video and output frames to the up or down folder.
+
 ```{bash}
 python extract_frames.py <video> fitness_poses_images_in/ <exercise>
 ```
 
-'''{bash}
+For example 
+
+```{bash}
 python extract_frames.py y-squats.mp4 fitness_poses_images_in/ y_squats
 ```
 
-Running this python program will provide an on-screen interface to step through the video and output frames to the up or down folder.
 
 The up folder will be located in the path `fitness_poses_images_in/<exercise>_up`. Similarly
 the down folder will be located in the path `fitness_poses_images_in/<exercise>_down`.
@@ -61,6 +65,7 @@ the comparison data for the KNN classifier.
 ## Analsysis of pose samples
 To get an idea of how well clustered samples for a class compared to other classes we can run T-distributed Stochastic Neighbour Embedding (T-SNE)
 on the final CSV file. T-SNE finds a 2-d embedding of the 99-dimensional pose samples so that they can be conveniently plotted.
+
 
 ```{bash}
 python tsne.py <perplexity> <iterations>
