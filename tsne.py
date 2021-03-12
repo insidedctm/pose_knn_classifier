@@ -11,7 +11,7 @@ def tsne(perp, iters):
         perp - perplexity (typical value is between 5 and 50)
         iters - number of iterations to run TSNE 
   '''
-  path = '/Users/robineast/projects/mlkit/android/vision-quickstart/app/src/main/assets/pose/fitness_pose_samples_ext.csv'
+  path = 'fitness_poses_csvs_out.csv'
   data_cols = [f'data{ix}' for ix in range(99)]
   cols = ['filename', 'exercise']
   cols.extend(data_cols)
@@ -39,6 +39,7 @@ def tsne(perp, iters):
       x="tsne-2d-one", y="tsne-2d-two",
       hue="exercise_name",
       style="up_down",
+      palette=sns.color_palette("Paired"),
       #palette=sns.color_palette("hls", n_exercises),
       data=tsne_df,
       legend="full",

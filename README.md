@@ -1,5 +1,10 @@
 # Human Pose K-Nearest Neighbour Classifier
 
+This repo contains code to manage the extraction of pose samples from recorded videos
+to provide the training corpus for the Nearest Neighbour classifier (which is used to implement
+exercise rep counting). The output of the programs contained here is a CSV file containing
+pose samples that can be loaded into the MLKit Pose Classifier.
+
 ## Prerequisites
 python 3.7 installation
 
@@ -52,3 +57,14 @@ python export_csv.py
 
 Combines all the filtered csv into a single csv called `fitness_poses_csvs_out.csv`. This file can be imported into the Android app to provide
 the comparison data for the KNN classifier.
+
+## Analsysis of pose samples
+To get an idea of how well clustered samples for a class compared to other classes we can run T-distributed Stochastic Neighbour Embedding (T-SNE)
+on the final CSV file. T-SNE finds a 2-d embedding of the 99-dimensional pose samples so that they can be conveniently plotted.
+
+```{bash}
+python tsne.py <perplexity> <iterations>
+```
+
+Perplexity is usually between 5 and 100; 50 seems to give good results. Iterations should be set high enough so that the embedding converges to 
+something visually useful. This can be found empirically however 500 has given good results.
