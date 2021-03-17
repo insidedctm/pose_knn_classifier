@@ -4,6 +4,8 @@ import cv2
 font = cv2.FONT_HERSHEY_SIMPLEX 
 
 def extract_frames(input_video, output_folder, exercise):
+  video_name = input_video.split('/')[-1]
+
   up_folder_path = f'{output_folder}/{exercise}_up'
   down_folder_path = f'{output_folder}/{exercise}_down'
 
@@ -29,12 +31,12 @@ def extract_frames(input_video, output_folder, exercise):
     if key & 0xFF == ord('q'):
       break
     if key & 0xFF == ord('u'):
-      output_path = f'{up_folder_path}/{exercise}{cnt}.jpg'
+      output_path = f'{up_folder_path}/{video_name}_{exercise}{cnt}.jpg'
       print(f'save to {output_path}')
       #frame = rotate_and_resize(frame, target_width=320) 
       cv2.imwrite(output_path, frame)
     if key & 0xFF == ord('d'):
-      output_path = f'{down_folder_path}/{exercise}{cnt}.jpg'
+      output_path = f'{down_folder_path}/{video_name}_{exercise}{cnt}.jpg'
       print(f'save to {output_path}')
       #frame = rotate_and_resize(frame, target_width=320)
       cv2.imwrite(output_path, frame)
