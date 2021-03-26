@@ -39,7 +39,7 @@ def tsne(perp, iters):
       x="tsne-2d-one", y="tsne-2d-two",
       hue="exercise_name",
       style="up_down",
-      palette=sns.color_palette("Paired"),
+      #palette=sns.color_palette("Paired"),
       #palette=sns.color_palette("hls", n_exercises),
       data=tsne_df,
       legend="full",

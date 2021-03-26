@@ -27,7 +27,6 @@ def extract_frames(input_video, output_folder, exercise, keymap):
 
     cv2.imshow('video', withText(frame, f'{cnt}'))
     key = cv2.waitKey(0)
-    print(key)
     if key & 0xFF == ord('q'):
       break
     if key & 0xFF in [k for k in keys]:
@@ -68,10 +67,9 @@ def rotate_and_resize(img, target_width):
   scaling = target_width / width
   target_height = int( height * scaling)
   dim = (target_width, target_height)
-  print(f'resizing to {dim}')
   resized = cv2.resize(img, dim, interpolation = cv2.INTER_AREA)
-  rotated = cv2.rotate(resized, cv2.ROTATE_90_COUNTERCLOCKWISE)
-  return rotated
+  #rotated = cv2.rotate(resized, cv2.ROTATE_90_COUNTERCLOCKWISE)
+  #return rotated
   return resized
 
 def parse_args():
