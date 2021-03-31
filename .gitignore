@@ -1,6 +1,8 @@
 .DS_Store
 *.zip
 *.png
+*.MOV
+*.mp4
 
 __pycache__/
 fitness_poses_images_in/
