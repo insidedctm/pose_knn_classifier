@@ -85,7 +85,9 @@ KEYPOINTS = {
   'LEFT_SHOULDER': [int(Keypoints.LEFT_SHOULDER)],
   'LEFT_WRIST': [int(Keypoints.LEFT_WRIST)],
   'LEFT_ANKLE': [int(Keypoints.LEFT_ANKLE)],
+  'RIGHT_ANKLE': [int(Keypoints.RIGHT_ANKLE)],
   'LEFT_KNEE':  [int(Keypoints.LEFT_KNEE)],
+  'RIGHT_KNEE': [int(Keypoints.RIGHT_KNEE)],
   'LEFT_ANKLE_JOINT': [int(Keypoints.LEFT_KNEE), int(Keypoints.LEFT_ANKLE), int(Keypoints.LEFT_FOOT_INDEX)],
   'LEFT_KNEE_JOINT': [int(Keypoints.LEFT_HIP), int(Keypoints.LEFT_KNEE), int(Keypoints.LEFT_ANKLE)],
   'RIGHT_KNEE_JOINT': [int(Keypoints.RIGHT_HIP), int(Keypoints.RIGHT_KNEE), int(Keypoints.RIGHT_ANKLE)]
@@ -230,6 +232,7 @@ def parse_args():
 
 if __name__ == '__main__':
   args = parse_args()
+  print(args)
 
   video = args.video
   if video.isnumeric():
