@@ -1,5 +1,6 @@
 import argparse
 import cv2
+import airtable
 
 font = cv2.FONT_HERSHEY_SIMPLEX 
 
@@ -85,6 +86,11 @@ if __name__ == '__main__':
   args = parse_args()
   print(f'Using keymap: {args.keymap}')
 
-  extract_frames(args.input_video, args.output_folder, args.exercise, args.keymap)
+  input_video = args.input_video
+  if input_video.isnumeric():
+    input_video = airtable.download_video_by_ref(input_video)
+
+
+  extract_frames(input_video, args.output_folder, args.exercise, args.keymap)
 
 
