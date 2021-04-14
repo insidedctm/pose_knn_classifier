@@ -3,9 +3,10 @@
 *.png
 *.MOV
 *.mp4
+*.csv
 
 __pycache__/
-fitness_poses_images_in/
+*_poses_images_in/
 fitness_poses_images_out/
 fitness_poses_csvs_out/
 csvs/
