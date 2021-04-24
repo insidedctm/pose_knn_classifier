@@ -45,6 +45,8 @@ class PoseClassifier(object):
                                                  n_landmarks,
                                                  n_dimensions,
                                                  pose_embedder)
+    # DEBUG
+    self.last_classification_filenames = []
 
   def _load_pose_samples(self,
                          pose_samples_folder,
@@ -168,5 +170,7 @@ class PoseClassifier(object):
     # Collect results into map: (class_name -> n_samples)
     class_names = [self._pose_samples[sample_idx].class_name for _, sample_idx in mean_dist_heap]
     result = {class_name: class_names.count(class_name) for class_name in set(class_names)}
+
+    self.last_classification_filenames = [f'{self._pose_samples[sample_idx].class_name}/{self._pose_samples[sample_idx].name}' for _, sample_idx in mean_dist_heap]
 
     return result
